@@ -1,0 +1,23 @@
+初始化前增加四个字段，顺序如下：
+alter table zmap_r_patient add column confidence varchar(200)
+alter table zmap_r_patient add column confirm_status varchar(200)
+alter table zmap_r_patient add column confirm_person varchar(200)
+alter table zmap_r_patient add column empi_id varchar(200)
+
+创建备份表
+create table zmap_r_patient_backup as select * from zmap_r_patient limit 0
+
+
+
+初始化执行脚本：
+init_empi_main.py
+
+
+
+更新执行脚本：
+update_empi_main.py
+
+
+
+数据库修改：
+mysql.py中修改服务器（host）、数据库名（db）、账户（user）、密码（passwd）
